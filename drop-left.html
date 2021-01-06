@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .button {
+      padding: 10px ;
+      border: 0 ;
+      outline: 0 ;
+      background-color: darkblue ;
+      border-radius: 5px ;
+      color: white ;
+      font: inherit ;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: blue ;
+    }
+
+    /* drop left , right */
+    .drop-left , .drop-right {
+      position: relative ;
+      display: inline-block;
+    }
+    .drop-left > .drop,
+    .drop-right > .drop {
+      position: absolute ;
+      padding: 10px 0 ;
+      top: 0%;
+      width: 200px ;
+      display: none ;
+      background-color: #fff  ;
+      border: 1px solid rgba(0,0,0,.15);
+    }
+    .drop-left > .drop {
+      border-radius: 0 5px 5px 5px;
+      left: 100% ;
+    }
+    .drop-right > .drop {
+      border-radius: 5px 0 5px 5px;
+      right: 100% ;
+    }
+
+    .drop-left:hover .button {
+      border-radius: 5px 0 0 5px ;
+    }
+    .drop-right:hover .button {
+      border-radius: 0 5px 5px 0 ;
+    }
+
+    .drop-left:hover .drop,
+    .drop-right:hover .drop{
+      display: block ;
+    }
+    .drop-left .drop .item ,
+    .drop-right .drop .item {
+      display: block ;
+      font: inherit ;
+      padding: 4px 15px ;
+      text-decoration: none ;
+      color: inherit 
+    }
+    .drop-right .drop .item-header,
+    .drop-left .drop .item-header {
+      font-weight: bold ;
+    }
+
+    .drop-left .drop .item:hover:not(.item-header) ,
+    .drop-right .drop .item:hover:not(.item-header) {
+      background-color: rgba(0, 0, 0, 0.13) ;
+    }
+
+    .drop-left .divider,
+    .drop-right .divider {
+      height: 0;
+      margin: .5rem 0;
+      overflow: hidden;
+      border-top: 1px solid #e9ecef;
+    }
+  </style>
+</head>
+<body>
+  <div style="padding:5%">
+
+    <h1>Drop left , right</h1>
+
+    <div class="drop-left">
+      <button class="button">Hello</button>
+      <div class="drop">
+        <a href="#" class="item item-header">Drop title</a>
+        <div class="divider"></div>
+        <a href="#" class="item">This is an item</a>
+        <a href="#" class="item">Another item</a>
+        <a href="#" class="item">Item</a>
+      </div>
+    </div>
+
+    <div class="drop-right" style="float: right ;">
+      <button class="button">Hello</button>
+      <div class="drop">
+        <a href="#" class="item item-header">Drop title</a>
+        <div class="divider"></div>
+        <a href="#" class="item">This is an item</a>
+        <a href="#" class="item">Item</a>
+        <a href="#" class="item">Item</a>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
